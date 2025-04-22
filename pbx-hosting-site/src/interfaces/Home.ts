@@ -10,7 +10,14 @@ export interface Service {
     descripcion: string;
 }
 
+export interface Reseller {
+    titulo: string;
+    descripcion: string;
+    icono: string;
+}
+
 export interface HomeData {
     cards: Card[];
     services: Service[];
+    resellers: Reseller[];
 }

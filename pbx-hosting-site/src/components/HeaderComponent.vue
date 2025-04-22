@@ -53,7 +53,7 @@
                 <div class="container-fluid">
                   <div class="row">
                     <!-- Lista principal -->
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6 col-lg-4">
                       <ul class="list-unstyled text-uppercase">
                         <li
                           class="mb-2 ms-3 border-bottom"
@@ -64,24 +64,25 @@
                           <router-link
                             :to="serv.route"
                             class="nav-link fw-bold text-decoration-none d-flex align-items-center"
+                            @click.stop
                           >
-                            {{ serv.nombre }}
+                            <i :class="serv.icono" class="mx-2"></i>{{ serv.nombre }}
                           </router-link>
                         </li>
                       </ul>
                     </div>
                     <!-- Subcategorías -->
-                    <div class="col-12 col-md-8 mt-3 mt-md-0 hover-productos" v-if="showMegaMenu">
+                    <div class="col-12 col-md-6 col-lg-8 mt-3 mt-md-0 hover-productos" v-if="showMegaMenu">
                       <div class="row">
                         <!-- Mostrar el título de la categoría activa -->
-                        <div class="col-10 mb-3 mt-3 border-bottom">
+                        <div class="col-10 ms-3 mb-3 mt-3 border-bottom">
                           <h5 class="text-uppercase fw-bold">{{ activeServicio }}</h5>
                         </div>
-                        <div class="col-6 col-md-4" v-for="(grupo, index) in getServicios" :key="index">
+                        <div class="col-12 col-lg-6" v-for="(grupo, index) in getServicios" :key="index">
                           <ul class="list-unstyled">
                             <li v-for="servicio in grupo" :key="servicio.nombre" class="mb-2">
                               <router-link :to="servicio.route" class="text-decoration-none sub-link">
-                                {{ servicio.nombre }}
+                                <i :class="servicio.icono" class="mx-2" style="color: #FFFFFF;"></i> {{ servicio.nombre }}
                               </router-link>
                             </li>
                           </ul>
@@ -99,13 +100,13 @@
               <a class="nav-link text-uppercase" href="">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-uppercase d-block d-lg-none" href="">
+              <a class="nav-link text-uppercase d-block d-lg-none" href="https://www.pbxhosting.com.mx/clientarea/" target="_blank">
                 Mi Cuenta
               </a>
             </li>
           </ul>
           <div class="d-none d-lg-block">
-            <a href="" class="btn">Mi cuenta</a>
+            <a href="https://www.pbxhosting.com.mx/clientarea/" target="_blank" class="btn">Mi cuenta</a>
           </div>
         </div>
       </nav>
@@ -190,4 +191,25 @@
   color: var(--color-tercary);
 }
 
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-item {
+  white-space: nowrap;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin-top: -1px;
+}
+
+.dropdown-submenu .dropdown-menu {
+  display: none;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+}
 </style>

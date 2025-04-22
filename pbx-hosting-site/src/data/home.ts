@@ -44,5 +44,22 @@ export const homeData: HomeData = {
 			descripcion: "Telefonía para Callcenters con una excelente tarifa para mejorar tu contactación día a día.",
 			num: "5"
 		},
+	],
+	resellers: [
+		{
+			titulo: "Genera Ganancias",
+			descripcion: "Tu colocas el precio.",
+			icono: "bi bi-cash-coin"
+		},
+		{
+			titulo: "Panel Revendedor",
+			descripcion: "Aplica saldo, asigna números, crea planes.",
+			icono: "bi bi-display"
+		},
+		{
+			titulo: "Mínima inversión",
+			descripcion: "Inicia con $1000MXN+IVA.",
+			icono: "bi bi-currency-exchange"
+		},
 	]
 };

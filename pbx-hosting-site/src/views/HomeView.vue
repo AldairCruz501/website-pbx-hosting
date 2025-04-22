@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FooterComponent from '../components/FooterComponent.vue';
 import HeaderComponent from '../components/HeaderComponent.vue';
 import { homeData } from '../data/home';
 </script>
@@ -37,22 +38,22 @@ import { homeData } from '../data/home';
 	</section>
 	<section class="voip-home">
 		<div class="container-fluid">
-      <div class="container col-xxl-8">
-        <div class="row d-flex align-items-center g-5 py-5">
-          <div class="col-10 col-sm-8 col-lg-6">
-            <img src="/img/img-callcenter.webp" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"  width="90%" loading="lazy">
-          </div>
-          <div class="col-lg-6">
-			<h4 class="subtitle-hero fs-5">Servicios Escalables</h4>
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Soluciones VoIP Personalizadas para empresas de todos los tamaños</h1>
-            <p>Optimiza tu comunicación empresarial con servicios voip adaptados a las necesidades específicas de tu empresa o call center. Desde pequeños negocios hasta grandes corporativos, ofrecemos soluciones personalizadas que impulsan tu éxito.</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button type="button" class="btn btn-lg px-4 me-md-2">Asesorate</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+			<div class="container col-xxl-8">
+				<div class="row d-flex align-items-center g-5 py-5">
+					<div class="col-10 col-sm-8 col-lg-6">
+						<img src="/img/img-callcenter.webp" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"  width="90%" loading="lazy">
+					</div>
+					<div class="col-lg-6">
+						<h4 class="subtitle-hero fs-5">Servicios Escalables</h4>
+						<h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Soluciones VoIP Personalizadas para empresas de todos los tamaños</h2>
+						<p>Optimiza tu comunicación empresarial con servicios voip adaptados a las necesidades específicas de tu empresa o call center. Desde pequeños negocios hasta grandes corporativos, ofrecemos soluciones personalizadas que impulsan tu éxito.</p>
+						<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+							<button type="button" class="btn btn-lg px-4 me-md-2">Asesorate</button>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
 	</section>
 	<section class="counter-section">
 		<div class="container">
@@ -91,7 +92,7 @@ import { homeData } from '../data/home';
 					<div class="services-title pt-4">
 						<p class="subtitle-service text-uppercase fw-bold mb-3">Nuestros Servicios</p>
 						<h1 class="text-uppercase">Para cualquier tipo de empresa</h1>
-						<p>Conoce la gran variedad de servicios que te ofrecemos.</p>
+						<p class="services-text">Conoce la gran variedad de servicios que te ofrecemos.</p>
 					</div>
       			</div>
 				  <div v-for="(service, index) in homeData.services" :key="index" class="col-lg-4 col-md-6 service-item">
@@ -105,6 +106,40 @@ import { homeData } from '../data/home';
 			</div>
 		</div>
 	</section>
+	<section class="section border-top">
+		<div class="container">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-lg-5">
+					<div class="reseller-title">
+					<p class="subtitle-reseller text-uppercase fw-bold mb-3">Genera Ganancias</p>
+					<h1>Conviértete en Revendedor</h1>
+					<div class="content mb-0 mt-4">
+						<p class="reseller-text">
+							Ofrecemos la oportunidad de revender nuestro servicio de Telefonía IP, 
+							permitiéndote expandir tu negocio y ofrecer a tus clientes una solución 
+							de comunicaciones de alta calidad y rentable.
+						</p>
+					</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div v-for="(reseller, index) in homeData.resellers" :key="index" class="reseller-item p-3 rounded mr-0 me-lg-4">
+						<div class="d-block d-sm-flex align-items-center m-2">
+							<div class="icon me-4 mb-4 mb-sm-0"> <i :class="reseller.icono" style="font-size:36px"></i>
+							</div>
+							<div class="block">
+								<h3 class="mb-3">{{ reseller.titulo }}</h3>
+								<p class="mb-0 reseller-text">
+									{{ reseller.descripcion }}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<FooterComponent />
 </template>
 
 <style scoped>
@@ -148,7 +183,8 @@ import { homeData } from '../data/home';
 		background-color: #fdfdfd;
 	}
 	.subtitle-hero,
-	.subtitle-service {
+	.subtitle-service,
+	.subtitle-reseller {
 		color: var(--secondary_color)
 	}
 	.voip-home p {
@@ -172,14 +208,19 @@ import { homeData } from '../data/home';
 	.counter h4 {
 		color: var(--default_color);
 	}
-	.services-section{
+	.services-section,
+	.reseller-section{
 		padding-top: 120px;
 		padding-bottom: 120px;
 	}
-	.services-title {
+	.services-title,
+	.reseller-title {
  		margin-bottom: 30px;
+		font-family: "Poppins", sans-serif !important;
 	}
-	.services-title {
+	.services-text,
+	.reseller-text {
+ 		margin-bottom: 30px;
 		font-family: "Open Sans", sans-serif !important;
 	}
 	.service-item {
@@ -189,7 +230,8 @@ import { homeData } from '../data/home';
 		position: relative;
 		z-index: 10;
 	}
-	.service-item:hover {
+	.service-item:hover,
+	.reseller-item:hover {
 		box-shadow: 0px 25px 65px 0px rgba(0, 0, 0, 0.1) !important;
 	}
 	.service-item .colored-box {
@@ -214,7 +256,8 @@ import { homeData } from '../data/home';
 	.service-item a:hover .service-description {
 		color: var(--color-tercary);
 	}
-	.service-item .block {
+	.service-item .block,
+	.reseller-item .block {
 		padding: 35px 39px;
 	}
 	@media (min-width: 991px) {
@@ -245,5 +288,26 @@ import { homeData } from '../data/home';
 	}
 	.service-item:hover {
 		border-color: transparent;
+	}
+	.reseller-item {
+  		position: relative;
+  		transition: 0.3s;
+	}
+	.reseller-item:not(:last-child) {
+		margin-bottom: 10px;
+	}
+	.reseller-item .icon {
+		height: 85px;
+		flex: 0 0 auto;
+		width: 85px;
+		line-height: 85px;
+		text-align: center;
+		border-radius: 8px;
+		color: var(--secondary_color);
+		background-color: rgba(181, 81, 81, 0.2);
+	}
+	.reseller-item:nth-child(even) .icon {
+		color: var(--primary_color);
+		background-color: rgba(157, 149, 189, 0.2);
 	}
 </style>

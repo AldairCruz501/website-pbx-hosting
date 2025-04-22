@@ -63,17 +63,54 @@ p {
     font-size: 17px;
     font-weight: 400;
 }
+
 ul li {
     color: var(--text_color);
     font-size: 17px;
     font-weight: 400;
     margin: 15px 0px;
     display: flex;
+    align-items: center;
 }
+
+
 ul li i {
     color: var(--secondary_color);
-    margin-right: 20px
+    margin-right: 20px;
 }
+
+@media (max-width: 575.98px) {
+    ul li {
+        font-size: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    ul li i {
+        margin-right: 0;
+    }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    ul li {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 768px) {
+    ul li {
+        font-size: 17px;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    ul li i {
+        margin-right: 20px;
+    }
+}
+
 /* title */
 .large-title {
     font-size: 64px;
